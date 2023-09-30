@@ -17,4 +17,11 @@ model user {
   lastname String
 }
 
+model Post {
+  id Int @id @default(autoincrement())
+  title String
+  content String?
+  authorId Int
+  author user @relation(fields: [authorId], references: [id])
+}
 
